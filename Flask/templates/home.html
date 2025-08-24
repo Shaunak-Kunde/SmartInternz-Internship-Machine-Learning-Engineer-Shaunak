@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Productivity Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        nav { text-align: right; margin-bottom: 20px; }
+        nav a { margin: 0 10px; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('predict_route') }}">Predict</a>
+    </nav>
+
+    <h1>Welcome to Employee Productivity Prediction</h1>
+    <p>This application predicts garment worker productivity using machine learning.</p>
+</body>
+</html>
