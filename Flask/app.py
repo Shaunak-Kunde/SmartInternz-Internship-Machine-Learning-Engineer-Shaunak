@@ -18,6 +18,14 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route("/predict")
+def home1():
+    return render_template('predict.html')
+
+@app.route("/submit")
+def home2():
+    return render_template('submit.html')
+
 @app.route("/predict", methods=["GET", "POST"])
 def predict_route():
     if request.method == "POST":
