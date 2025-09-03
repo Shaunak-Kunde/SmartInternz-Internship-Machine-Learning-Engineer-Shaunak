@@ -2,84 +2,91 @@ Garment Worker Productivity Prediction
 
 Hi! I’m Shaunak, and this project focuses on predicting the productivity of garment workers using machine learning. I built this application with a user-friendly web interface, allowing anyone to input work-related factors and instantly see productivity predictions.
 
-How the Project Works
+Employee Performance Prediction
+Project Overview
+This is a comprehensive system designed to analyze various data points related to employees' work performance and use machine learning algorithms, specifically XGBoost, to predict and evaluate their future productivity. By incorporating factors such as past performance metrics, training data, feedback, and external factors, the system aims to provide insights that can aid in talent management, resource allocation, and workforce optimization strategies.
 
-Here’s the flow I designed for the application:
+Machine Learning Approach
+The web application uses a pre-trained machine learning model, which was trained and evaluated in a Jupyter notebook. The project flow is as follows:
 
-User Input: You provide key details about a garment worker’s performance via the web interface.
+User Interaction: The user interacts with a Flask web interface to enter the input features for an employee.
 
-Model Analysis: The backend receives your input and feeds it into a pre-trained machine learning model.
+Model Analysis: The entered input is passed to the integrated XGBoost model (gwp.pkl) for prediction.
 
-Prediction: The model processes the data and gives a productivity prediction, which is immediately displayed for you.
+Prediction Display: The model's prediction is then showcased on the UI, along with a text-based classification ("averagely productive," "medium productive," or "highly productive").
 
-Project Structure
+Technical Details (from Jupyter Notebook)
+Data Preprocessing:
 
-I organized the project to keep things simple and easy to navigate:
+The date column was converted to a datetime format, and the month was extracted as a new feature.
 
-Dataset/: Contains the garments_worker_productivity.csv dataset I used to train the model.
+The department and team columns were handled using a custom MultiColumnLabelEncoder class.
 
-Training Files/: Includes my Jupyter Notebook Employee_Prediction.ipynb and the saved model gwp.pkl.
+The wip column was dropped from the dataset for model training, as it contained null values.
 
-Flask/: Houses the web app code:
+Model Selection:
 
-templates/: HTML files for the UI (home.html, about.html, predict.html, submit.html).
+Three models were evaluated: LinearRegression, RandomForestRegressor, and XGBRegressor.
 
-app.py: Python script managing the web server, model loading, and predictions.
+The XGBRegressor model showed the best performance and was selected for the final application.
 
-gwp.pkl: The trained machine learning model ready to use.
+Model Saving: The final XGBoost model was saved to a pickle file named gwp.pkl using the pickle library.
 
-What I Did in This Project
-1. Data Collection & Pre-processing
+Scenarios
+1. Talent Retention
+HR departments can use the machine learning predictions to identify high-performing employees at risk of attrition. By analyzing factors contributing to employee turnover and predicting performance trends, HR can implement targeted retention strategies, such as personalized career development plans or incentive programs, to retain top talent.
 
-Collected the garments_worker_productivity.csv dataset.
+2. Performance Improvement
+Managers and team leaders can leverage the predictions to identify areas where employees may need additional support or training. By understanding performance patterns and potential challenges, managers can provide timely coaching, resources, or skill development opportunities to enhance employee performance and productivity.
 
-Cleaned the data to handle missing or null values.
+3. Resource Allocation
+Organizations can optimize resource allocation by using machine learning predictions to match employees with projects or tasks that align with their strengths and capabilities. This ensures efficient utilization of talent, improves project outcomes, and enhances overall organizational performance.
 
-Processed columns like date, department, quarter, and day to make them suitable for the model, including converting categorical data into numerical formats.
+Project Objectives
+By completing this project, you will:
 
-2. Model Building
+Know fundamental concepts and techniques used for machine learning.
 
-Set up libraries like xgboost, scikit-learn, and numpy.
+Gain a broad understanding about data.
 
-Split the dataset into training and testing sets, and trained an XGBoost model.
+Have knowledge on pre-processing the data/transformation techniques and some visualization concepts.
 
-Evaluated the model’s performance to ensure accuracy.
+Setup and Installation
+1. Prerequisites
+Ensure you have Python installed on your system.
 
-Saved the final trained model as gwp.pkl so it could be easily loaded in the web app.
+2. Project Files
+The project consists of the following files and folders:
 
-3. Application Development
+app.py: The main Flask application.
 
-Designed HTML pages for the homepage, about page, and prediction form.
+gwp.pkl: The pre-trained machine learning model.
 
-Built the Flask backend to:
+templates/: Contains all the HTML files for the web interface.
 
-Serve the HTML templates.
+static/: Contains the CSS files for styling the application.
 
-Load the saved model (gwp.pkl).
+requirements.txt: Lists all the necessary Python libraries.
 
-Process user input and make predictions.
+3. Install Dependencies
+Navigate to the project directory in your terminal and install the required libraries using the requirements.txt file.
 
-Display the results in a clear, readable format.
+pip install -r requirements.txt
 
-Running the Application
-
-To try it out on your own machine:
-
-Clone the Repository
-
-git clone <repository_url>
-
-
-Install Required Libraries
-
-pip install flask numpy xgboost scikit-learn
-
-
-Go to the Flask Directory
-
-cd Project/Flask
-
-
-Run the Web Application
+4. Run the Application
+Start the Flask application by running the app.py file.
 
 python app.py
+
+The application will start on your local server. You can access it by opening your web browser and navigating to http://127.0.0.1:5000.
+
+Usage
+Home Page: The starting page provides a general overview of the app.
+
+Predict Page: Navigate to the /predict page.
+
+Enter Data: Fill out the form with the relevant employee information.
+
+Submit: Click "Submit" to get the productivity prediction.
+
+View Result: The result page will display both the numerical prediction and a text-based classification.
