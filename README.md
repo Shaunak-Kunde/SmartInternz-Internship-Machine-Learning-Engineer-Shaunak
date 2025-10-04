@@ -1,93 +1,117 @@
-## Employee Performance Prediction using Machine Learning (Model Building + Application Development + Deployment)
+# Employee Performance Prediction using Machine Learning
 
-## A machine learning project that predicts employee productivity using regression models (Linear, Random Forest, XGBoost) and deploys the best-performing model via a Flask web application for real-time insights.
+## Model Building + Application Development + Deployment
 
-Author:
-Shaunak Kunde
-Master of Engineering in Data Science
+A machine learning project that predicts employee productivity using regression models (Linear, Random Forest, XGBoost) and deploys the best-performing model via a Flask web application for real-time insights.
 
-Internship Context
+**Author:** Shaunak Kunde
 
-This project was developed as part of a virtual internship for a Machine Learning Engineer role with SmartInternz. It applies machine learning techniques to a practical business challenge: predicting employee productivity and providing actionable insights for workforce management.
+*Master of Engineering in Data Science*
 
-# Project Overview
+### Internship Context
 
-The Machine Learning Approach for Employee Performance Prediction involves building a comprehensive system that analyzes employee-related data points to evaluate and forecast performance. By incorporating factors such as past productivity, training data, feedback, and external variables, the system generates predictions that support:
+This project was developed as part of a virtual internship for a Machine Learning Engineer role with **SmartInternz**. It applies machine learning techniques to a practical business challenge: predicting employee productivity and providing actionable insights for workforce management.
 
-Talent management
+## 📋 Project Overview
 
-Resource allocation
+The Machine Learning Approach for Employee Performance Prediction involves building a comprehensive system that analyzes various employee-related data points to evaluate and forecast performance. By incorporating factors such as past productivity, training data, feedback, and external variables, the system generates predictions that support talent management, resource allocation, and workforce optimization strategies.
 
-Workforce optimization strategies
-
-# Real-World Applications
-1. Talent Retention
-
-HR departments can use predictions to identify high-performing employees who may be at risk of leaving. By analyzing turnover factors and performance trends, HR can design personalized career development plans and incentive programs to retain top talent.
-
-2. Performance Improvement
-
-Managers and team leaders can leverage predictions to pinpoint areas where employees need additional support or training. This enables timely coaching, skill development, and resource allocation, ultimately boosting performance and productivity.
-
-3. Resource Allocation
-
-Machine learning predictions can align employees with tasks and projects that best match their strengths. This ensures efficient utilization of talent, improves project outcomes, and enhances overall organizational performance.
-
-# Project Objectives
+### 🎯 Project Objectives
 
 By completing this project, the following outcomes were achieved:
 
-Gained understanding of fundamental machine learning concepts and techniques.
+* Gained a deep understanding of fundamental machine learning concepts and techniques.
+* Explored and visualized data to uncover insights and patterns.
+* Applied essential data preprocessing and feature engineering techniques.
+* Built, trained, and evaluated multiple machine learning models to find the best fit.
+* Developed and deployed a Flask-based web application for real-time predictions.
 
-Explored and visualized data to uncover insights.
+## ⚙️ Project Workflow
 
-Applied essential data preprocessing and transformation techniques.
+The project is broken down into four main stages:
 
-Built, trained, and evaluated multiple machine learning models.
+#### 1. Data Collection & Preparation
 
-Developed and deployed a Flask-based web application for real-time predictions.
+* **Dataset:** `garments_worker_productivity.csv`
+* **Preprocessing Steps:**
+    * Dropped the `wip` column due to a high number of null values.
+    * Converted the `date` column into a datetime object and extracted the `month` as a new feature.
+    * Encoded categorical variables (`department`, `team`) using a custom `MultiColumnLabelEncoder` to prepare them for the models.
 
-## Project Workflow
-# 1. Data Collection & Preparation
+#### 2. Model Building & Selection
 
-Dataset used: garments_worker_productivity.csv
+* **Models Tested:**
+    1.  Linear Regression
+    2.  Random Forest Regressor
+    3.  XGBoost Regressor
+* **Selected Model:** **XGBoost Regressor** was chosen as the final model due to its superior performance (lower Mean Squared Error and higher R² score).
+* The trained XGBoost model was serialized and saved as `gwp.pkl` for deployment in the web application.
 
-Preprocessing steps included:
+#### 3. Application Development
 
-Dropping the wip column due to null values.
+* **Backend:** A **Flask** application (`app.py`) was developed to handle web routes, process user input, and perform model inference.
+* **Frontend:** HTML templates (`home.html`, `predict.html`, etc.) were created for user interaction and data entry.
+* **Styling:** CSS files were used to create a clean and user-friendly interface.
+* **Classification Logic:** The continuous prediction from the model is mapped to distinct categories—**Low, Medium, or High Productivity**—to provide clear, actionable insights.
 
-Converting the date column into a datetime object and extracting the month feature.
+#### 4. Deployment
 
-Encoding categorical variables (department, team) using a custom MultiColumnLabelEncoder.
+* The Flask application was successfully deployed for local use, allowing users to input data via the UI and receive accurate productivity predictions in real time.
 
-# 2. Model Building & Selection
+## 🏢 Real-World Applications
 
-Models tested:
+This model provides valuable insights that can be applied in various business contexts:
 
-Linear Regression
+* **Talent Retention:** HR departments can use predictions to identify high-performing employees who may be at risk of leaving. This allows for proactive creation of personalized career development plans and incentive programs.
+* **Performance Improvement:** Managers can leverage the predictions to pinpoint areas where employees need additional support or training, enabling timely coaching and skill development.
+* **Resource Allocation:** The system helps align employees with tasks and projects that best match their strengths, ensuring efficient utilization of talent and improving project outcomes.
 
-Random Forest Regressor
+## 🚀 How to Run the Project
 
-XGBoost Regressor
+To run this project locally, please follow these steps:
 
-# XGBoost Regressor was selected as the final model due to its superior performance (lower MSE, higher R²).
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/Shaunak-Kunde/SmartInternz-Internship-Machine-Learning-Engineer-Shaunak.git](https://github.com/Shaunak-Kunde/SmartInternz-Internship-Machine-Learning-Engineer-Shaunak.git)
+    cd SmartInternz-Internship-Machine-Learning-Engineer-Shaunak
+    ```
 
-The trained model was serialized as gwp.pkl for deployment.
+2.  **Create a Virtual Environment (Recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
 
-# 3. Application Development
+3.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-# Backend: Flask (app.py) — handles routes, logic, and model inference.
+4.  **Run the Flask Application:**
+    ```bash
+    python app.py
+    ```
 
-# Frontend: HTML pages (home.html, about.html, predict.html, submit.html) for user interaction.
+5.  Open your web browser and navigate to `http://127.0.0.1:5000`.
 
-# Styling: CSS files for a clean and user-friendly interface.
+## 🎥 Video Demonstration
 
-# Classification Logic: Predictions mapped to categories — Low, Medium, or High Productivity — for actionable insights.
+A video recording demonstrating the live functionality of the web application (`recording of task employee productivity.mp4`) is included in this repository.
 
-# 4. Deployment
+## 📂 Repository Structure
 
-The application was successfully deployed locally.
-
-# A video demostrating the working of the web application is also attached in the repository.
-
-Users can input data via the UI and receive accurate productivity predictions in real time.
+.
+├── Dataset/
+│   └── garments_worker_productivity.csv
+├── Flask/
+│   ├── app.py
+│   ├── static/
+│   └── templates/
+├── Training FIles/
+│   └── Employee Performance Predicition.ipynb
+├── .gitattributes
+├── Employee Performance Predicition.docx
+├── gwp.pkl
+├── README.md
+├── recording of task employee productivity.mp4
+└── requirements.txt
