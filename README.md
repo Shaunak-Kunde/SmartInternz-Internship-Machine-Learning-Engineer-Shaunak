@@ -1,4 +1,6 @@
-## Employee Performance Prediction
+## Employee Performance Prediction using Machine Learning (Model Building + Application Development + Deployment)
+
+## A machine learning project that predicts employee productivity using regression models (Linear, Random Forest, XGBoost) and deploys the best-performing model via a Flask web application for real-time insights.
 
 Author:
 Shaunak Kunde
@@ -68,19 +70,19 @@ Random Forest Regressor
 
 XGBoost Regressor
 
-XGBoost Regressor was selected as the final model due to its superior performance (lower MSE, higher R²).
+# XGBoost Regressor was selected as the final model due to its superior performance (lower MSE, higher R²).
 
 The trained model was serialized as gwp.pkl for deployment.
 
 # 3. Application Development
 
-Backend: Flask (app.py) — handles routes, logic, and model inference.
+# Backend: Flask (app.py) — handles routes, logic, and model inference.
 
-Frontend: HTML pages (home.html, about.html, predict.html, submit.html) for user interaction.
+# Frontend: HTML pages (home.html, about.html, predict.html, submit.html) for user interaction.
 
-Styling: CSS files for a clean and user-friendly interface.
+# Styling: CSS files for a clean and user-friendly interface.
 
-Classification Logic: Predictions mapped to categories — Low, Medium, or High Productivity — for actionable insights.
+# Classification Logic: Predictions mapped to categories — Low, Medium, or High Productivity — for actionable insights.
 
 # 4. Deployment
 
